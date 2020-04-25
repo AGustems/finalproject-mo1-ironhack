@@ -42,13 +42,13 @@ En una primera versión funcional del producto habrá:
 Como jugador elegiré una opción de las cinco para que la máquina me devuelva otra aleatoria y identifique el ganador para conseguir puntos.
 
 ### Wireframes
-! [wireframe1] (https://github.com/AGustems/finalproject-mo1-ironhack/blob/master/wireframes/wireframe1.jpg);
+![wireframe1](https://github.com/AGustems/finalproject-mo1-ironhack/blob/master/wireframes/wireframe1.jpg)
 
-! [wireframe2] (https://github.com/AGustems/finalproject-mo1-ironhack/blob/master/wireframes/wireframe2.jpg);
+![wireframe2](https://github.com/AGustems/finalproject-mo1-ironhack/blob/master/wireframes/wireframe2.jpg)
 
-! [wireframe3] (https://github.com/AGustems/finalproject-mo1-ironhack/blob/master/wireframes/wireframe3.jpg);
+![wireframe3](https://github.com/AGustems/finalproject-mo1-ironhack/blob/master/wireframes/wireframe3.jpg)
 
-! [wireframe4] (https://github.com/AGustems/finalproject-mo1-ironhack/blob/master/wireframes/wireframe4.jpg);
+![wireframe4](https://github.com/AGustems/finalproject-mo1-ironhack/blob/master/wireframes/wireframe4.jpg)
 
 
 ## Backlog
