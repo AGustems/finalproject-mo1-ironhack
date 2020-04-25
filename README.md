@@ -42,17 +42,13 @@ En una primera versión funcional del producto habrá:
 Como jugador elegiré una opción de las cinco para que la máquina me devuelva otra aleatoria y identifique el ganador para conseguir puntos.
 
 ### Wireframes
-Pantalla 1
-![wireframe1] ("/wireframes/wireframe1.jpg");
+! [wireframe1] (https://github.com/AGustems/finalproject-mo1-ironhack/blob/master/wireframes/wireframe1.jpg);
 
-Pantalla 2 (pop-up)
-![wireframe2] ("/wireframes/wireframe2.jpg");
+! [wireframe2] (https://github.com/AGustems/finalproject-mo1-ironhack/blob/master/wireframes/wireframe2.jpg);
 
-Pantalla 2 (juego)
-![wireframe3] ("/wireframes/wireframe3.jpg");
+! [wireframe3] (https://github.com/AGustems/finalproject-mo1-ironhack/blob/master/wireframes/wireframe3.jpg);
 
-Pantalla 2 (juego terminado)
-![wireframe4] ("/wireframes/wireframe4.jpg");
+! [wireframe4] (https://github.com/AGustems/finalproject-mo1-ironhack/blob/master/wireframes/wireframe4.jpg);
 
 
 ## Backlog
@@ -68,7 +64,9 @@ Pantalla 2 (juego terminado)
 
 ​
 ### Git
-Repositorio: 
+Repositorio:
++ [Repositorio en GitHub](https://github.com/AGustems/finalproject-mo1-ironhack)
+
 ​
 // Deploy: (no ahora, para un futuro)
 ​
@@ -77,3 +75,8 @@ Repositorio:
 
 
 ### Kanban
+
++ [Kanban del proyecto](https://trello.com/b/pwKnX0a0/mo1-final-project)
+
+
+
