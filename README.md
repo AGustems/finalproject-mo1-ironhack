@@ -58,11 +58,7 @@ Como jugador elegiré una opción de las cinco para que la máquina me devuelva 
 + Juego responsive.
 
 
-## Links
-
-
-
-​
+## Links 
 ### Git
 Repositorio:
 + [Repositorio en GitHub](https://github.com/AGustems/finalproject-mo1-ironhack)
