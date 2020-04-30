@@ -7,6 +7,11 @@ class Game {
         // Scores
         this.p1Score = 0;
         this.compP2Score = 0;
+
+        //Images test
+        this.imgLogo = new Image();
+        this.imgLogo.src = "/img/logo.png"
+
     };
 
     drawCanvas() {
@@ -14,16 +19,16 @@ class Game {
         this.ctx.fillStyle = "green";
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height / 2);
         this.ctx.fillStyle = "white";
-        this.ctx.font = "6px Arial";
-        this.ctx.fillText(`P1 SCORE: ${this.p1Score}`, 10, 10);
+        this.ctx.font = "48px Arial";
+        this.ctx.fillText(`P1 SCORE: ${this.p1Score}`, 50, 80);
 
 
         // Print the Computer canvas site
         this.ctx.fillStyle = "red";
         this.ctx.fillRect(0, (this.canvas.height / 2), this.canvas.width, this.canvas.height / 2);
         this.ctx.fillStyle = "white";
-        this.ctx.font = "6px Arial";
-        this.ctx.fillText(`COMPUTER SCORE: ${this.compP2Score}`, 10, (this.canvas.height) - 5);
+        this.ctx.font = "48px Arial";
+        this.ctx.fillText(`COMPUTER SCORE: ${this.compP2Score}`, 50, (this.canvas.height) - 50);
 
         // Divider of the two parts
         this.ctx.lineWidth = 2;
@@ -103,11 +108,11 @@ class Game {
     drawRock(player) {
         if (player === "player1") {
             this.ctx.fillStyle = "black";
-            this.ctx.font = "70px FontAwesome";
+            this.ctx.font = "300px FontAwesome";
             this.ctx.fillText('\uf255', (this.canvas.width / 2) - 30, this.canvas.height / 2.5);
         } else if (player == "computerChoice") {
             this.ctx.fillStyle = "black";
-            this.ctx.font = "70px FontAwesome";
+            this.ctx.font = "300px FontAwesome";
             this.ctx.fillText('\uf255', (this.canvas.width / 2) - 30, this.canvas.height * 0.9)
         }
     };
@@ -116,11 +121,11 @@ class Game {
     drawPaper(player) {
         if (player === "player1") {
             this.ctx.fillStyle = "black";
-            this.ctx.font = "70px FontAwesome";
+            this.ctx.font = "300px FontAwesome";
             this.ctx.fillText('\uf256', (this.canvas.width / 2) - 30, this.canvas.height / 2.5);
         } else if (player == "computerChoice") {
             this.ctx.fillStyle = "black";
-            this.ctx.font = "70px FontAwesome";
+            this.ctx.font = "300px FontAwesome";
             this.ctx.fillText('\uf256', (this.canvas.width / 2) - 30, this.canvas.height * 0.9);
         }
     };
@@ -129,11 +134,11 @@ class Game {
     drawScissors(player) {
         if (player === "player1") {
             this.ctx.fillStyle = "black";
-            this.ctx.font = "70px FontAwesome";
+            this.ctx.font = "300px FontAwesome";
             this.ctx.fillText('\uf257', (this.canvas.width / 2) - 30, this.canvas.height / 2.5);
         } else if (player == "computerChoice") {
             this.ctx.fillStyle = "black";
-            this.ctx.font = "70px FontAwesome";
+            this.ctx.font = "300px FontAwesome";
             this.ctx.fillText('\uf257', (this.canvas.width / 2) - 30, this.canvas.height * 0.9);
         }
     };
@@ -142,11 +147,11 @@ class Game {
     drawLizard(player) {
         if (player === "player1") {
             this.ctx.fillStyle = "black";
-            this.ctx.font = "70px FontAwesome";
+            this.ctx.font = "300px FontAwesome";
             this.ctx.fillText('\uf258', (this.canvas.width / 2) - 30, this.canvas.height / 2.5);
         } else if (player == "computerChoice") {
             this.ctx.fillStyle = "black";
-            this.ctx.font = "70px FontAwesome";
+            this.ctx.font = "300px FontAwesome";
             this.ctx.fillText('\uf258', (this.canvas.width / 2) - 30, this.canvas.height * 0.9);
         }
     };
@@ -155,11 +160,11 @@ class Game {
     drawSpock(player) {
         if (player === "player1") {
             this.ctx.fillStyle = "black";
-            this.ctx.font = "70px FontAwesome";
+            this.ctx.font = "300px FontAwesome";
             this.ctx.fillText('\uf259', (this.canvas.width / 2) - 30, this.canvas.height / 2.5);
         } else if (player == "computerChoice") {
             this.ctx.fillStyle = "black";
-            this.ctx.font = "70px FontAwesome";
+            this.ctx.font = "300px FontAwesome";
             this.ctx.fillText('\uf259', (this.canvas.width / 2) - 30, this.canvas.height * 0.9);
         }
     };

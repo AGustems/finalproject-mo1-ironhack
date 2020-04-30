@@ -9,8 +9,12 @@ const main = () => {
     const buildSplashScreen = () => {
         buildDom(`
         <section class="splash-screen">
-            <h1>HERE GOES THE LOGO IMAGE</h1>
-            <button>START GAME</button>
+            <div class="logo-image">
+                <img src="img/logo.png" alt="Logo">
+            </div>
+            <div class="start-button">
+                <button>START GAME</button>
+            </div>
         </section>
         `);
 
@@ -49,8 +53,16 @@ const main = () => {
 
         // Starting the canvas and the game class
         const canvasElement = document.querySelector("canvas");
-        canvasElement.style.width = '1100px';
-        canvasElement.style.heigth = '600px';
+
+
+        // Fixing the blurry render in the canvas
+        let dpi = window.devicePixelRatio;
+        let style_height = +getComputedStyle(canvas).getPropertyValue("height").slice(0, -2);
+        let style_width = +getComputedStyle(canvas).getPropertyValue("width").slice(0, -2);
+        canvasElement.setAttribute('height', style_height * dpi);
+        canvasElement.setAttribute('width', style_width * dpi);
+
+        // Declaring a new Game Object and starting the canvas waiting drawing
         const game = new Game(canvasElement);
         game.drawCanvas();
 
