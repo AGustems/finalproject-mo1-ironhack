@@ -4,38 +4,164 @@ class Game {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d')
 
-        // Scores
+        // Game scores
+        this.p1GeneralScore = 0;
+        this.compP2GeneralScore = 0;
+
+        // Match scores
         this.p1Score = 0;
         this.compP2Score = 0;
 
         //Images test
         this.imgLogo = new Image();
-        this.imgLogo.src = "/img/logo.png"
-
+        this.imgLogo.src = "/img/logo.png";
     };
 
     drawCanvas() {
         // Print the P1 canvas site
-        this.ctx.fillStyle = "green";
-        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height / 2);
+        this.ctx.save()
+        this.ctx.fillStyle = "#E68E2D";
+        this.ctx.fillRect(0, 0, this.canvas.width / 2, this.canvas.height);
         this.ctx.fillStyle = "white";
         this.ctx.font = "48px Arial";
-        this.ctx.fillText(`P1 SCORE: ${this.p1Score}`, 50, 80);
+        this.ctx.fillText(`P1 SCORE: ${this.p1GeneralScore}`, 50, 80);
+        this.ctx.restore();
 
+        // Print the P1 marker circles
+        this.ctx.save();
+        this.ctx.fillStyle = "#E68E2D";
+        this.ctx.lineWidth = 10;
+
+        // First circle
+        this.ctx.beginPath();
+        this.ctx.arc(150, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
+        if (this.p1Score === 1 ||
+            this.p1Score === 2 ||
+            this.p1Score === 3 ||
+            this.p1Score === 4 ||
+            this.p1Score === 5) {
+            this.ctx.fillStyle = "green";
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+
+        // Second circle
+        this.ctx.beginPath();
+        this.ctx.arc(350, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
+        if (this.p1Score === 2 ||
+            this.p1Score === 3 ||
+            this.p1Score === 4 ||
+            this.p1Score === 5) {
+            this.ctx.fillStyle = "green";
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+
+        // Third circle
+        this.ctx.beginPath();
+        this.ctx.arc(550, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
+        if (this.p1Score === 3 ||
+            this.p1Score === 4 ||
+            this.p1Score === 5) {
+            this.ctx.fillStyle = "green";
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+
+        // Forth circle
+        this.ctx.beginPath();
+        this.ctx.arc(750, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
+        if (this.p1Score === 4 ||
+            this.p1Score === 5) {
+            this.ctx.fillStyle = "green";
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+
+        // Fifth circle
+        this.ctx.beginPath();
+        this.ctx.arc(950, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
+        if (this.p1Score === 5) {
+            this.ctx.fillStyle = "green";
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+        this.ctx.restore();
 
         // Print the Computer canvas site
-        this.ctx.fillStyle = "red";
-        this.ctx.fillRect(0, (this.canvas.height / 2), this.canvas.width, this.canvas.height / 2);
+        this.ctx.fillStyle = "#376BA1";
+        this.ctx.fillRect(this.canvas.width / 2, 0, this.canvas.width / 2, this.canvas.height);
         this.ctx.fillStyle = "white";
         this.ctx.font = "48px Arial";
-        this.ctx.fillText(`COMPUTER SCORE: ${this.compP2Score}`, 50, (this.canvas.height) - 50);
+        this.ctx.fillText(`COMPUTER SCORE: ${this.compP2GeneralScore}`, (this.canvas.width / 2) + 50, 80);
+
+        // Print the Computer marker circles
+        this.ctx.save();
+        this.ctx.fillStyle = "#E68E2D";
+        this.ctx.lineWidth = 10;
+
+        // First circle
+        this.ctx.beginPath();
+        this.ctx.arc((this.canvas.width / 2) + 150, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
+        if (this.compP2Score === 1 ||
+            this.compP2Score === 2 ||
+            this.compP2Score === 3 ||
+            this.compP2Score === 4 ||
+            this.compP2Score === 5) {
+            this.ctx.fillStyle = "green";
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+
+        // Second circle
+        this.ctx.beginPath();
+        this.ctx.arc((this.canvas.width / 2) + 350, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
+        if (this.compP2Score === 2 ||
+            this.compP2Score === 3 ||
+            this.compP2Score === 4 ||
+            this.compP2Score === 5) {
+            this.ctx.fillStyle = "green";
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+
+        // Third circle
+        this.ctx.beginPath();
+        this.ctx.arc((this.canvas.width / 2) + 550, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
+        if (this.compP2Score === 3 ||
+            this.compP2Score === 4 ||
+            this.compP2Score === 5) {
+            this.ctx.fillStyle = "green";
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+
+        // Forth circle
+        this.ctx.beginPath();
+        this.ctx.arc((this.canvas.width / 2) + 750, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
+        if (this.compP2Score === 4 ||
+            this.compP2Score === 5) {
+            this.ctx.fillStyle = "green";
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+
+        // Fifth circle
+        this.ctx.beginPath();
+        this.ctx.arc((this.canvas.width / 2) + 950, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
+        if (this.compP2Score === 5) {
+            this.ctx.fillStyle = "green";
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+        this.ctx.restore();
 
         // Divider of the two parts
-        this.ctx.lineWidth = 2;
+        this.ctx.lineWidth = 15;
         this.ctx.beginPath();
-        this.ctx.moveTo(0, this.canvas.height / 2);
-        this.ctx.lineTo(this.canvas.width, this.canvas.height / 2);
-        this.ctx.strokeStyle = "white";
+        this.ctx.moveTo(this.canvas.width / 2, 0);
+        this.ctx.lineTo(this.canvas.width / 2, this.canvas.height);
+        this.ctx.strokeStyle = "#1D032B";
         this.ctx.stroke();
         this.ctx.closePath();
     }
@@ -107,65 +233,65 @@ class Game {
     // Draw ROCK either in the player canvas site or the Computer canvas site
     drawRock(player) {
         if (player === "player1") {
-            this.ctx.fillStyle = "black";
-            this.ctx.font = "300px FontAwesome";
-            this.ctx.fillText('\uf255', (this.canvas.width / 2) - 30, this.canvas.height / 2.5);
+            this.ctx.fillStyle = "#1D032B";
+            this.ctx.font = "600px FontAwesome";
+            this.ctx.fillText('\uf255', this.canvas.width / 8, this.canvas.height / 1.5);
         } else if (player == "computerChoice") {
-            this.ctx.fillStyle = "black";
-            this.ctx.font = "300px FontAwesome";
-            this.ctx.fillText('\uf255', (this.canvas.width / 2) - 30, this.canvas.height * 0.9)
+            this.ctx.fillStyle = "#1D032B";
+            this.ctx.font = "600px FontAwesome";
+            this.ctx.fillText('\uf255', (this.canvas.width / 2) + (this.canvas.width / 8), this.canvas.height / 1.5)
         }
     };
 
     // Draw PAPER either in the player canvas site or the Computer canvas site
     drawPaper(player) {
         if (player === "player1") {
-            this.ctx.fillStyle = "black";
-            this.ctx.font = "300px FontAwesome";
-            this.ctx.fillText('\uf256', (this.canvas.width / 2) - 30, this.canvas.height / 2.5);
+            this.ctx.fillStyle = "#1D032B";
+            this.ctx.font = "600px FontAwesome";
+            this.ctx.fillText('\uf256', this.canvas.width / 8, this.canvas.height / 1.5);
         } else if (player == "computerChoice") {
-            this.ctx.fillStyle = "black";
-            this.ctx.font = "300px FontAwesome";
-            this.ctx.fillText('\uf256', (this.canvas.width / 2) - 30, this.canvas.height * 0.9);
+            this.ctx.fillStyle = "#1D032B";
+            this.ctx.font = "600px FontAwesome";
+            this.ctx.fillText('\uf256', (this.canvas.width / 2) + (this.canvas.width / 8), this.canvas.height / 1.5);
         }
     };
 
     // Draw SCISSORS either in the player canvas site or the Computer canvas site
     drawScissors(player) {
         if (player === "player1") {
-            this.ctx.fillStyle = "black";
-            this.ctx.font = "300px FontAwesome";
-            this.ctx.fillText('\uf257', (this.canvas.width / 2) - 30, this.canvas.height / 2.5);
+            this.ctx.fillStyle = "#1D032B";
+            this.ctx.font = "600px FontAwesome";
+            this.ctx.fillText('\uf257', this.canvas.width / 8, this.canvas.height / 1.5);
         } else if (player == "computerChoice") {
-            this.ctx.fillStyle = "black";
-            this.ctx.font = "300px FontAwesome";
-            this.ctx.fillText('\uf257', (this.canvas.width / 2) - 30, this.canvas.height * 0.9);
+            this.ctx.fillStyle = "#1D032B";
+            this.ctx.font = "600px FontAwesome";
+            this.ctx.fillText('\uf257', (this.canvas.width / 2) + (this.canvas.width / 8), this.canvas.height / 1.5);
         }
     };
 
     // Draw LIZARD either in the player canvas site or the Computer canvas site
     drawLizard(player) {
         if (player === "player1") {
-            this.ctx.fillStyle = "black";
-            this.ctx.font = "300px FontAwesome";
-            this.ctx.fillText('\uf258', (this.canvas.width / 2) - 30, this.canvas.height / 2.5);
+            this.ctx.fillStyle = "#1D032B";
+            this.ctx.font = "600px FontAwesome";
+            this.ctx.fillText('\uf258', this.canvas.width / 8, this.canvas.height / 1.5);
         } else if (player == "computerChoice") {
-            this.ctx.fillStyle = "black";
-            this.ctx.font = "300px FontAwesome";
-            this.ctx.fillText('\uf258', (this.canvas.width / 2) - 30, this.canvas.height * 0.9);
+            this.ctx.fillStyle = "#1D032B";
+            this.ctx.font = "600px FontAwesome";
+            this.ctx.fillText('\uf258', (this.canvas.width / 2) + (this.canvas.width / 8), this.canvas.height / 1.5);
         }
     };
 
     // Draw SPOCK either in the player canvas site or the Computer canvas site
     drawSpock(player) {
         if (player === "player1") {
-            this.ctx.fillStyle = "black";
-            this.ctx.font = "300px FontAwesome";
-            this.ctx.fillText('\uf259', (this.canvas.width / 2) - 30, this.canvas.height / 2.5);
+            this.ctx.fillStyle = "#1D032B";
+            this.ctx.font = "600px FontAwesome";
+            this.ctx.fillText('\uf259', this.canvas.width / 8, this.canvas.height / 1.5);
         } else if (player == "computerChoice") {
-            this.ctx.fillStyle = "black";
-            this.ctx.font = "300px FontAwesome";
-            this.ctx.fillText('\uf259', (this.canvas.width / 2) - 30, this.canvas.height * 0.9);
+            this.ctx.fillStyle = "#1D032B";
+            this.ctx.font = "600px FontAwesome";
+            this.ctx.fillText('\uf259', (this.canvas.width / 2) + (this.canvas.width / 8), this.canvas.height / 1.5);
         }
     };
 
