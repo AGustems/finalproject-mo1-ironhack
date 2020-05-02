@@ -15,85 +15,78 @@ class Game {
 
         // Sentence images winning
         this.imgRockScissors = new Image();
-        this.imgRockScissors.src = "/img/win-rockscissors.png";
+        this.imgRockScissors.src = "img/win-rockscissors.png";
 
         this.imgRockLizard = new Image();
-        this.imgRockLizard.src = "/img/win-rocklizard.png";
+        this.imgRockLizard.src = "img/win-rocklizard.png";
 
         this.imgPaperRock = new Image();
-        this.imgPaperRock.src = "/img/win-paperrock.png";
+        this.imgPaperRock.src = "img/win-paperrock.png";
 
         this.imgPaperSpock = new Image();
-        this.imgPaperSpock.src = "/img/win-paperspock.png";
+        this.imgPaperSpock.src = "img/win-paperspock.png";
 
         this.imgScissorsPaper = new Image();
-        this.imgScissorsPaper.src = "/img/win-scissorspaper.png";
+        this.imgScissorsPaper.src = "img/win-scissorspaper.png";
 
         this.imgScissorsLizard = new Image();
-        this.imgScissorsLizard.src = "/img/win-scissorslizard.png";
+        this.imgScissorsLizard.src = "img/win-scissorslizard.png";
 
         this.imgLizardPaper = new Image();
-        this.imgLizardPaper.src = "/img/win-lizardpaper.png";
+        this.imgLizardPaper.src = "img/win-lizardpaper.png";
 
         this.imgLizardSpock = new Image();
-        this.imgLizardSpock.src = "/img/win-lizardspock.png";
+        this.imgLizardSpock.src = "img/win-lizardspock.png";
 
         this.imgSpockRock = new Image();
-        this.imgSpockRock.src = "/img/win-spockrock.png";
+        this.imgSpockRock.src = "img/win-spockrock.png";
 
         this.imgSpockScissors = new Image();
-        this.imgSpockScissors.src = "/img/win-spockscissors.png";
+        this.imgSpockScissors.src = "img/win-spockscissors.png";
 
 
         // Sentence images loosing
         this.imgRockPaper = new Image();
-        this.imgRockPaper.src = "/img/lose-rockpaper.png";
+        this.imgRockPaper.src = "img/lose-rockpaper.png";
 
         this.imgRockSpock = new Image();
-        this.imgRockSpock.src = "/img/lose-rockspock.png";
+        this.imgRockSpock.src = "img/lose-rockspock.png";
 
         this.imgPaperScissors = new Image();
-        this.imgPaperScissors.src = "/img/lose-paperscissors.png";
+        this.imgPaperScissors.src = "img/lose-paperscissors.png";
 
         this.imgPaperLizard = new Image();
-        this.imgPaperLizard.src = "/img/lose-paperlizard.png";
+        this.imgPaperLizard.src = "img/lose-paperlizard.png";
 
         this.imgScissorsRock = new Image();
-        this.imgScissorsRock.src = "/img/lose-scissorsrock.png";
+        this.imgScissorsRock.src = "img/lose-scissorsrock.png";
 
         this.imgScissorsSpock = new Image();
-        this.imgScissorsSpock.src = "/img/lose-scissorsspock.png";
+        this.imgScissorsSpock.src = "img/lose-scissorsspock.png";
 
         this.imgLizardRock = new Image();
-        this.imgLizardRock.src = "/img/lose-lizardrock.png";
+        this.imgLizardRock.src = "img/lose-lizardrock.png";
 
         this.imgLizardScissors = new Image();
-        this.imgLizardScissors.src = "/img/lose-lizardscissors.png";
+        this.imgLizardScissors.src = "img/lose-lizardscissors.png";
 
         this.imgSpockPaper = new Image();
-        this.imgSpockPaper.src = "/img/lose-spockpaper.png";
+        this.imgSpockPaper.src = "img/lose-spockpaper.png";
 
         this.imgSpockLizard = new Image();
-        this.imgSpockLizard.src = "/img/lose-spocklizard.png";
+        this.imgSpockLizard.src = "img/lose-spocklizard.png";
 
         // Image draw
         this.imgDraw = new Image();
-        this.imgDraw.src = "/img/draw.png";
+        this.imgDraw.src = "img/draw.png";
 
         // Sounds win/lose/draw
         this.winSound = new Audio();
-        this.winSound.src = "/sounds/win.mp3";
+        this.winSound.src = "sounds/win.mp3";
         this.loseSound = new Audio();
-        this.loseSound.src = "/sounds/lose.mp3"
+        this.loseSound.src = "sounds/lose.mp3"
         this.drawSound = new Audio();
-        this.drawSound.src = "/sounds/draw.mp3"
-
-        // Scoreboard
-        this.scoreboardP1 = new Image();
-        this.scoreboardP1.src = "/img/P1scoreboard.png";
-        this.scoreboardComp = new Image();
-        this.scoreboardComp.src = "/img/Compscoreboard.png";
-
+        this.drawSound.src = "sounds/draw.mp3"
     };
 
     // Scoreboard for both players

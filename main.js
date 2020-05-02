@@ -25,24 +25,24 @@ const main = () => {
     }
 
     // Audios and music
+    const gameMusic = () => {
+        const theme = new Audio();
+        theme.src = "sounds/gamemusic.mp3";
+        theme.play();
+        theme.loop = true;
+    };
+
     const startSound = () => {
         const sound = new Audio();
-        sound.src = "/sounds/startgame.mp3";
+        sound.src = "sounds/startgame.mp3";
         sound.play();
     }
 
     const choiceSound = () => {
         const soundChoice = new Audio();
-        soundChoice.src = "/sounds/choice.wav";
+        soundChoice.src = "sounds/choice.wav";
         soundChoice.play();
     }
-
-    const gameMusic = () => {
-        const theme = new Audio();
-        theme.src = "/sounds/gamemusic.mp3";
-        theme.play();
-        theme.loop = true;
-    };
 
     // Build the HTML of the game screen
     const buildGameScreen = () => {
@@ -114,7 +114,7 @@ const main = () => {
     };
     // Function to start the Splash screen on load
     buildSplashScreen();
-    gameMusic();
+    setTimeout(gameMusic, 1000);
 }
 
 // Start the main constant on load
