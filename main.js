@@ -42,7 +42,7 @@ const main = () => {
         theme.src = "/sounds/gamemusic.mp3";
         theme.play();
         theme.loop = true;
-    }
+    };
 
     // Build the HTML of the game screen
     const buildGameScreen = () => {

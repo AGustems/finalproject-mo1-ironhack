@@ -2,7 +2,7 @@ class Game {
     constructor(canvas) {
         // Prepare the canvas to draw
         this.canvas = canvas;
-        this.ctx = this.canvas.getContext('2d')
+        this.ctx = this.canvas.getContext('2d');
 
         // Game scores
         this.p1GeneralScore = 0;
@@ -84,150 +84,119 @@ class Game {
         this.winSound = new Audio();
         this.winSound.src = "/sounds/win.mp3";
         this.loseSound = new Audio();
-        this.loseSound.src = "/sounds/lose.mp3";
+        this.loseSound.src = "/sounds/lose.mp3"
         this.drawSound = new Audio();
-        this.drawSound.src = "/sounds/draw.mp3";
+        this.drawSound.src = "/sounds/draw.mp3"
+
+        // Scoreboard
+        this.scoreboardP1 = new Image();
+        this.scoreboardP1.src = "/img/P1scoreboard.png";
+        this.scoreboardComp = new Image();
+        this.scoreboardComp.src = "/img/Compscoreboard.png";
+
+    };
+
+    // Scoreboard for both players
+    drawScoreBoard(firstWidth, player) {
+        // Print the marker circles
+        this.ctx.save();
+        this.ctx.fillStyle = "#E68E2D";
+        this.ctx.lineWidth = 10;
+
+        // First circle
+        this.ctx.beginPath();
+        this.ctx.arc(firstWidth, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
+        if (player === 1 ||
+            player === 2 ||
+            player === 3 ||
+            player === 4 ||
+            player === 5) {
+            this.ctx.fillStyle = "green";
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+
+        // Second circle
+        this.ctx.beginPath();
+        this.ctx.arc(firstWidth + 200, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
+        if (player === 2 ||
+            player === 3 ||
+            player === 4 ||
+            player === 5) {
+            this.ctx.fillStyle = "green";
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+
+        // Third circle
+        this.ctx.beginPath();
+        this.ctx.arc(firstWidth + 400, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
+        if (player === 3 ||
+            player === 4 ||
+            player === 5) {
+            this.ctx.fillStyle = "green";
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+
+        // Forth circle
+        this.ctx.beginPath();
+        this.ctx.arc(firstWidth + 600, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
+        if (player === 4 ||
+            player === 5) {
+            this.ctx.fillStyle = "green";
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+
+        // Fifth circle
+        this.ctx.beginPath();
+        this.ctx.arc(firstWidth + 800, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
+        if (player === 5) {
+            this.ctx.fillStyle = "green";
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+        this.ctx.restore();
+    };
+
+    drawBadge(xPlus, color, player, score) {
+        this.ctx.beginPath();
+        this.ctx.moveTo(xPlus + 50, 0);
+        this.ctx.lineTo(xPlus + 50, 150);
+        this.ctx.lineTo(xPlus + 115, 200);
+        this.ctx.lineTo(xPlus + 180, 150);
+        this.ctx.lineTo(xPlus + 180, 0);
+        this.ctx.closePath();
+        this.ctx.lineWidth = 7.5;
+        this.ctx.fillStyle = color;
+        this.ctx.fill();
+        this.ctx.strokeStyle = "#1D032B";
+        this.ctx.stroke();
+        this.ctx.fillStyle = "white";
+        this.ctx.font = "32px Arial";
+        this.ctx.fillText(`${player}`, xPlus + 70, 50);
+        this.ctx.font = "100px Arial";
+        this.ctx.fillText(score, xPlus + 85, 150)
+
     };
 
     // Waiting screen for the canvas + score
     drawCanvas() {
         // Print the P1 canvas site
-        this.ctx.save()
         this.ctx.fillStyle = "#E68E2D";
         this.ctx.fillRect(0, 0, this.canvas.width / 2, this.canvas.height);
-        this.ctx.fillStyle = "white";
-        this.ctx.font = "48px Arial";
-        this.ctx.fillText(`P1 SCORE: ${this.p1GeneralScore}`, 50, 80);
-        this.ctx.restore();
 
-        // Print the P1 marker circles
-        this.ctx.save();
-        this.ctx.fillStyle = "#E68E2D";
-        this.ctx.lineWidth = 10;
+        this.drawBadge(0, "#c46500", "Player", this.p1GeneralScore);
+        this.drawScoreBoard(150, this.p1Score);
 
-        // First circle
-        this.ctx.beginPath();
-        this.ctx.arc(150, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
-        if (this.p1Score === 1 ||
-            this.p1Score === 2 ||
-            this.p1Score === 3 ||
-            this.p1Score === 4 ||
-            this.p1Score === 5) {
-            this.ctx.fillStyle = "green";
-            this.ctx.fill();
-        }
-        this.ctx.stroke();
-
-        // Second circle
-        this.ctx.beginPath();
-        this.ctx.arc(350, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
-        if (this.p1Score === 2 ||
-            this.p1Score === 3 ||
-            this.p1Score === 4 ||
-            this.p1Score === 5) {
-            this.ctx.fillStyle = "green";
-            this.ctx.fill();
-        }
-        this.ctx.stroke();
-
-        // Third circle
-        this.ctx.beginPath();
-        this.ctx.arc(550, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
-        if (this.p1Score === 3 ||
-            this.p1Score === 4 ||
-            this.p1Score === 5) {
-            this.ctx.fillStyle = "green";
-            this.ctx.fill();
-        }
-        this.ctx.stroke();
-
-        // Forth circle
-        this.ctx.beginPath();
-        this.ctx.arc(750, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
-        if (this.p1Score === 4 ||
-            this.p1Score === 5) {
-            this.ctx.fillStyle = "green";
-            this.ctx.fill();
-        }
-        this.ctx.stroke();
-
-        // Fifth circle
-        this.ctx.beginPath();
-        this.ctx.arc(950, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
-        if (this.p1Score === 5) {
-            this.ctx.fillStyle = "green";
-            this.ctx.fill();
-        }
-        this.ctx.stroke();
-        this.ctx.restore();
 
         // Print the Computer canvas site
         this.ctx.fillStyle = "#376BA1";
         this.ctx.fillRect(this.canvas.width / 2, 0, this.canvas.width / 2, this.canvas.height);
-        this.ctx.fillStyle = "white";
-        this.ctx.font = "48px Arial";
-        this.ctx.fillText(`COMPUTER SCORE: ${this.compP2GeneralScore}`, (this.canvas.width / 2) + 50, 80);
+        this.drawBadge(this.canvas.width / 2, "#214f7c", "Comp", this.compP2GeneralScore);
 
-        // Print the Computer marker circles
-        this.ctx.save();
-        this.ctx.fillStyle = "#E68E2D";
-        this.ctx.lineWidth = 10;
-
-        // First circle
-        this.ctx.beginPath();
-        this.ctx.arc((this.canvas.width / 2) + 150, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
-        if (this.compP2Score === 1 ||
-            this.compP2Score === 2 ||
-            this.compP2Score === 3 ||
-            this.compP2Score === 4 ||
-            this.compP2Score === 5) {
-            this.ctx.fillStyle = "green";
-            this.ctx.fill();
-        }
-        this.ctx.stroke();
-
-        // Second circle
-        this.ctx.beginPath();
-        this.ctx.arc((this.canvas.width / 2) + 350, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
-        if (this.compP2Score === 2 ||
-            this.compP2Score === 3 ||
-            this.compP2Score === 4 ||
-            this.compP2Score === 5) {
-            this.ctx.fillStyle = "green";
-            this.ctx.fill();
-        }
-        this.ctx.stroke();
-
-        // Third circle
-        this.ctx.beginPath();
-        this.ctx.arc((this.canvas.width / 2) + 550, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
-        if (this.compP2Score === 3 ||
-            this.compP2Score === 4 ||
-            this.compP2Score === 5) {
-            this.ctx.fillStyle = "green";
-            this.ctx.fill();
-        }
-        this.ctx.stroke();
-
-        // Forth circle
-        this.ctx.beginPath();
-        this.ctx.arc((this.canvas.width / 2) + 750, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
-        if (this.compP2Score === 4 ||
-            this.compP2Score === 5) {
-            this.ctx.fillStyle = "green";
-            this.ctx.fill();
-        }
-        this.ctx.stroke();
-
-        // Fifth circle
-        this.ctx.beginPath();
-        this.ctx.arc((this.canvas.width / 2) + 950, (this.canvas.height) - 100, 60, 0, 2 * Math.PI);
-        if (this.compP2Score === 5) {
-            this.ctx.fillStyle = "green";
-            this.ctx.fill();
-        }
-        this.ctx.stroke();
-        this.ctx.restore();
+        this.drawScoreBoard((this.canvas.width / 2) + 150, this.compP2Score);
 
         // Divider of the two parts
         this.ctx.lineWidth = 15;
@@ -237,16 +206,22 @@ class Game {
         this.ctx.strokeStyle = "#1D032B";
         this.ctx.stroke();
         this.ctx.closePath();
+    };
+
+    // Icons for the win/lose/draw screen
+    drawIconBig(font, code) {
+        this.ctx.fillStyle = "#1D032B";
+        this.ctx.font = font;
+        this.ctx.fillText(code, this.canvas.width / 3, this.canvas.height * 0.6);
     }
 
-
+    // Win match screen
     win(matchChoice) {
         // Increment the score of the P1
         this.p1Score++;
-
-        // Control console.log
-        console.log(this.p1Score);
-        console.log("Player 1 has won!")
+        this.checkWinLose();
+        const x = this.canvas.width / 5;
+        const y = this.canvas.height * 0.7;
 
         // Print the winner screen
         setTimeout(() => {
@@ -254,113 +229,53 @@ class Game {
             this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
             switch (matchChoice) {
                 case "rockscissors":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "800px FontAwesome";
-                    this.ctx.fillText('\uf255', this.canvas.width / 3, this.canvas.height * 0.6);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgRockScissors, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("800px FontAwesome", '\uf255')
+                    this.ctx.drawImage(this.imgRockScissors, x, y, 1400, 250)
                     break;
 
                 case "rocklizard":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "800px FontAwesome";
-                    this.ctx.fillText('\uf255', this.canvas.width / 3, this.canvas.height * 0.6);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgRockLizard, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("800px FontAwesome", '\uf255');
+                    this.ctx.drawImage(this.imgRockLizard, x, y, 1400, 250);
                     break;
 
                 case "paperrock":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "750px FontAwesome";
-                    this.ctx.fillText('\uf256', this.canvas.width / 3, this.canvas.height * 0.65);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgPaperRock, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("750px FontAwesome", '\uf256');
+                    this.ctx.drawImage(this.imgPaperRock, x, y, 1400, 250);
                     break;
 
                 case "paperspock":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "750px FontAwesome";
-                    this.ctx.fillText('\uf256', this.canvas.width / 3, this.canvas.height * 0.65);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgPaperSpock, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("750px FontAwesome", '\uf256');
+                    this.ctx.drawImage(this.imgPaperSpock, x, y, 1400, 250);
                     break;
 
                 case "scissorspaper":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "800px FontAwesome";
-                    this.ctx.fillText('\uf257', this.canvas.width / 3, this.canvas.height * 0.6);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgScissorsPaper, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("800px FontAwesome", '\uf257');
+                    this.ctx.drawImage(this.imgScissorsPaper, x, y, 1400, 250);
                     break;
 
                 case "scissorslizard":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "800px FontAwesome";
-                    this.ctx.fillText('\uf257', this.canvas.width / 3, this.canvas.height * 0.6);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgScissorsLizard, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("800px FontAwesome", '\uf257');
+                    this.ctx.drawImage(this.imgScissorsLizard, x, y, 1400, 250);
                     break;
 
                 case "lizardpaper":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "700px FontAwesome";
-                    this.ctx.fillText('\uf258', this.canvas.width / 3.5, this.canvas.height * 0.65);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgLizardPaper, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("700px FontAwesome", '\uf258');
+                    this.ctx.drawImage(this.imgLizardPaper, x, y, 1400, 250)
                     break;
 
                 case "lizardspock":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "700px FontAwesome";
-                    this.ctx.fillText('\uf258', this.canvas.width / 3.5, this.canvas.height * 0.65);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgLizardSpock, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("700px FontAwesome", '\uf258');
+                    this.ctx.drawImage(this.imgLizardSpock, x, y, 1400, 250);
                     break;
 
                 case "spockrock":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "750px FontAwesome";
-                    this.ctx.fillText('\uf259', this.canvas.width / 3, this.canvas.height * 0.65);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgSpockRock, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("750px FontAwesome", '\uf259');
+                    this.ctx.drawImage(this.imgSpockRock, x, y, 1400, 250);
                     break;
 
                 case "spockscissors":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "750px FontAwesome";
-                    this.ctx.fillText('\uf259', this.canvas.width / 3, this.canvas.height * 0.65);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgSpockScissors, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("750px FontAwesome", '\uf259');
+                    this.ctx.drawImage(this.imgSpockScissors, x, y, 1400, 250)
                     break;
             }
 
@@ -373,13 +288,13 @@ class Game {
         }, 10000)
     };
 
+    // Lose match screen 
     lose(matchChoice) {
         // Increment the score of the Computer
         this.compP2Score++;
-
-        // Control console.log
-        console.log(this.compP2Score);
-        console.log("Player 1 has lost!")
+        this.checkWinLose();
+        const x = this.canvas.width / 5;
+        const y = this.canvas.height * 0.7;
 
         // Print the loser screen
         setTimeout(() => {
@@ -387,113 +302,53 @@ class Game {
             this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
             switch (matchChoice) {
                 case "rockpaper":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "750px FontAwesome";
-                    this.ctx.fillText('\uf256', this.canvas.width / 3, this.canvas.height * 0.65);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgRockPaper, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("750px FontAwesome", '\uf256');
+                    this.ctx.drawImage(this.imgRockPaper, x, y, 1400, 250)
                     break;
 
                 case "rockspock":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "750px FontAwesome";
-                    this.ctx.fillText('\uf259', this.canvas.width / 3, this.canvas.height * 0.65);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgRockSpock, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("750px FontAwesome", '\uf259');
+                    this.ctx.drawImage(this.imgRockSpock, x, y, 1400, 250);
                     break;
 
                 case "paperscissors":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "800px FontAwesome";
-                    this.ctx.fillText('\uf257', this.canvas.width / 3, this.canvas.height * 0.6);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgPaperScissors, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("750px FontAwesome", '\uf257');
+                    this.ctx.drawImage(this.imgPaperScissors, x, y, 1400, 250);
                     break;
 
                 case "paperlizard":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "700px FontAwesome";
-                    this.ctx.fillText('\uf258', this.canvas.width / 3.5, this.canvas.height * 0.65);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgPaperLizard, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("700px FontAwesome", '\uf258');
+                    this.ctx.drawImage(this.imgPaperLizard, x, y, 1400, 250);
                     break;
 
                 case "scissorsrock":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "800px FontAwesome";
-                    this.ctx.fillText('\uf255', this.canvas.width / 3, this.canvas.height * 0.6);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgScissorsRock, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("800px FontAwesome", '\uf255');
+                    this.ctx.drawImage(this.imgScissorsRock, x, y, 1400, 250);
                     break;
 
                 case "scissorsspock":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "750px FontAwesome";
-                    this.ctx.fillText('\uf259', this.canvas.width / 3, this.canvas.height * 0.65);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgScissorsSpock, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("700px FontAwesome", '\uf259');
+                    this.ctx.drawImage(this.imgScissorsSpock, x, y, 1400, 250);
                     break;
 
                 case "lizardrock":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "800px FontAwesome";
-                    this.ctx.fillText('\uf255', this.canvas.width / 3, this.canvas.height * 0.6);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgLizardRock, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("800px FontAwesome", '\uf255');
+                    this.ctx.drawImage(this.imgLizardRock, x, y, 1400, 250);
                     break;
 
                 case "lizardscissors":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "800px FontAwesome";
-                    this.ctx.fillText('\uf257', this.canvas.width / 3, this.canvas.height * 0.6);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgLizardScissors, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("800px FontAwesome", '\uf257');
+                    this.ctx.drawImage(this.imgLizardScissors, x, y, 1400, 250);
                     break;
 
                 case "spockpaper":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "750px FontAwesome";
-                    this.ctx.fillText('\uf256', this.canvas.width / 3, this.canvas.height * 0.65);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgSpockPaper, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("750px FontAwesome", '\uf256');
+                    this.ctx.drawImage(this.imgSpockPaper, x, y, 1400, 250);
                     break;
 
                 case "spocklizard":
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "700px FontAwesome";
-                    this.ctx.fillText('\uf258', this.canvas.width / 3.5, this.canvas.height * 0.65);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgSpockLizard, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("700px FontAwesome", '\uf258');
+                    this.ctx.drawImage(this.imgSpockLizard, x, y, 1400, 250);
                     break;
             }
 
@@ -507,6 +362,7 @@ class Game {
 
     };
 
+    // Draw match screen
     draw(matchChoice) {
         // Control console.log
         console.log("DRAAAAW!");
@@ -517,61 +373,27 @@ class Game {
             this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
             switch (matchChoice) {
                 case 'rockrock':
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "800px FontAwesome";
-                    this.ctx.fillText('\uf255', this.canvas.width / 3, this.canvas.height * 0.6);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgDraw, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("800px FontAwesome", '\uf255');
                     break;
 
                 case 'paperpaper':
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "750px FontAwesome";
-                    this.ctx.fillText('\uf256', this.canvas.width / 3, this.canvas.height * 0.65);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgDraw, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("750px FontAwesome", '\uf256');
                     break;
 
                 case 'scissorsscissors':
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "800px FontAwesome";
-                    this.ctx.fillText('\uf257', this.canvas.width / 3, this.canvas.height * 0.6);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgDraw, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("800px FontAwesome", '\uf257');
                     break;
 
                 case 'lizardlizard':
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "700px FontAwesome";
-                    this.ctx.fillText('\uf258', this.canvas.width / 3.5, this.canvas.height * 0.65);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgDraw, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("700px FontAwesome", '\uf258');
                     break;
 
                 case 'spockspock':
-                    this.ctx.save();
-                    this.ctx.fillStyle = "#1D032B";
-                    this.ctx.font = "750px FontAwesome";
-                    this.ctx.fillText('\uf259', this.canvas.width / 3, this.canvas.height * 0.65);
-                    this.ctx.restore();
-                    this.ctx.save();
-                    this.ctx.drawImage(this.imgDraw, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250)
-                    this.ctx.restore();
+                    this.drawIconBig("700px FontAwesome", '\uf259');
                     break;
-            }
+            };
 
+            this.ctx.drawImage(this.imgDraw, this.canvas.width / 5, this.canvas.height * 0.7, 1400, 250);
             this.drawSound.play();
         }, 3000);
 
@@ -588,68 +410,21 @@ class Game {
         return choices[randomChoice];
     };
 
-    // Draw ROCK either in the player canvas site or the Computer canvas site
-    drawRock(player) {
-        if (player === "player1") {
-            this.ctx.fillStyle = "#1D032B";
-            this.ctx.font = "600px FontAwesome";
-            this.ctx.fillText('\uf255', this.canvas.width / 8, this.canvas.height / 1.5);
-        } else if (player == "computerChoice") {
-            this.ctx.fillStyle = "#1D032B";
-            this.ctx.font = "600px FontAwesome";
-            this.ctx.fillText('\uf255', (this.canvas.width / 2) + (this.canvas.width / 8), this.canvas.height / 1.5)
-        }
-    };
+    // Draw choice icons
+    drawIconLittle(icon, x) {
+        const y = this.canvas.height / 1.5;
+        this.ctx.fillStyle = "#1D032B";
+        this.ctx.font = "600px FontAwesome";
+        this.ctx.fillText(icon, x, this.canvas.height / 1.5);
 
-    // Draw PAPER either in the player canvas site or the Computer canvas site
-    drawPaper(player) {
-        if (player === "player1") {
-            this.ctx.fillStyle = "#1D032B";
-            this.ctx.font = "600px FontAwesome";
-            this.ctx.fillText('\uf256', this.canvas.width / 8, this.canvas.height / 1.5);
-        } else if (player == "computerChoice") {
-            this.ctx.fillStyle = "#1D032B";
-            this.ctx.font = "600px FontAwesome";
-            this.ctx.fillText('\uf256', (this.canvas.width / 2) + (this.canvas.width / 8), this.canvas.height / 1.5);
-        }
-    };
+    }
 
-    // Draw SCISSORS either in the player canvas site or the Computer canvas site
-    drawScissors(player) {
+    // Draw the choice of the player or the computer con the canvas
+    drawChoice(player, logo) {
         if (player === "player1") {
-            this.ctx.fillStyle = "#1D032B";
-            this.ctx.font = "600px FontAwesome";
-            this.ctx.fillText('\uf257', this.canvas.width / 8, this.canvas.height / 1.5);
+            this.drawIconLittle(logo, this.canvas.width / 8);
         } else if (player == "computerChoice") {
-            this.ctx.fillStyle = "#1D032B";
-            this.ctx.font = "600px FontAwesome";
-            this.ctx.fillText('\uf257', (this.canvas.width / 2) + (this.canvas.width / 8), this.canvas.height / 1.5);
-        }
-    };
-
-    // Draw LIZARD either in the player canvas site or the Computer canvas site
-    drawLizard(player) {
-        if (player === "player1") {
-            this.ctx.fillStyle = "#1D032B";
-            this.ctx.font = "600px FontAwesome";
-            this.ctx.fillText('\uf258', this.canvas.width / 14, this.canvas.height / 1.5);
-        } else if (player == "computerChoice") {
-            this.ctx.fillStyle = "#1D032B";
-            this.ctx.font = "600px FontAwesome";
-            this.ctx.fillText('\uf258', (this.canvas.width / 2) + (this.canvas.width / 14), this.canvas.height / 1.5);
-        }
-    };
-
-    // Draw SPOCK either in the player canvas site or the Computer canvas site
-    drawSpock(player) {
-        if (player === "player1") {
-            this.ctx.fillStyle = "#1D032B";
-            this.ctx.font = "600px FontAwesome";
-            this.ctx.fillText('\uf259', this.canvas.width / 12, this.canvas.height / 1.5);
-        } else if (player == "computerChoice") {
-            this.ctx.fillStyle = "#1D032B";
-            this.ctx.font = "600px FontAwesome";
-            this.ctx.fillText('\uf259', (this.canvas.width / 2) + (this.canvas.width / 12), this.canvas.height / 1.5);
+            this.drawIconLittle(logo, (this.canvas.width / 2) + (this.canvas.width / 8));
         }
     };
 
@@ -667,138 +442,150 @@ class Game {
         switch (this.gameChoices) {
             // User choses rock
             case "rockrock":
-                this.drawRock("player1");
-                this.drawRock("computerChoice");
+                this.drawChoice("player1", '\uf255');
+                this.drawChoice("computerChoice", '\uf255');
                 this.draw(this.gameChoices);
                 break;
             case "rockpaper":
-                this.drawRock("player1");
-                this.drawPaper("computerChoice");
+                this.drawChoice("player1", '\uf255');
+                this.drawChoice("computerChoice", '\uf256');
                 this.lose(this.gameChoices);
                 break;
             case "rockscissors":
-                this.drawRock("player1");
-                this.drawScissors("computerChoice");
+                this.drawChoice("player1", '\uf255');
+                this.drawChoice("computerChoice", '\uf257');
                 this.win(this.gameChoices);
                 break;
             case "rocklizard":
-                this.drawRock("player1");
-                this.drawLizard("computerChoice")
+                this.drawChoice("player1", '\uf255');
+                this.drawChoice("computerChoice", '\uf258')
                 this.win(this.gameChoices);
                 break;
             case "rockspock":
-                this.drawRock("player1");
-                this.drawSpock("computerChoice");
+                this.drawChoice("player1", '\uf255');
+                this.drawChoice("computerChoice", '\uf259');
                 this.lose(this.gameChoices);
                 break;
 
                 // User choses paper
             case "paperrock":
-                this.drawPaper("player1");
-                this.drawRock("computerChoice");
+                this.drawChoice("player1", '\uf256');
+                this.drawChoice("computerChoice", '\uf255');
                 this.win(this.gameChoices);
                 break;
             case "paperpaper":
-                this.drawPaper("player1");
-                this.drawPaper("computerChoice");
+                this.drawChoice("player1", '\uf256');
+                this.drawChoice("computerChoice", '\uf256');
                 this.draw(this.gameChoices);
                 break;
             case "paperscissors":
-                this.drawPaper("player1");
-                this.drawScissors("computerChoice");
+                this.drawChoice("player1", '\uf256');
+                this.drawChoice("computerChoice", '\uf257');
                 this.lose(this.gameChoices);
                 break;
             case "paperlizard":
-                this.drawPaper("player1");
-                this.drawLizard("computerChoice");
+                this.drawChoice("player1", '\uf256');
+                this.drawChoice("computerChoice", '\uf258');
                 this.lose(this.gameChoices);
                 break;
             case "paperspock":
-                this.drawPaper("player1");
-                this.drawSpock("computerChoice");
+                this.drawChoice("player1", '\uf256');
+                this.drawChoice("computerChoice", '\uf259');
                 this.win(this.gameChoices);
                 break;
 
                 // User choses scissors
             case "scissorsrock":
-                this.drawScissors("player1");
-                this.drawRock("computerChoice");
+                this.drawChoice("player1", '\uf257');
+                this.drawChoice("computerChoice", '\uf255');
                 this.lose(this.gameChoices);
                 break;
             case "scissorspaper":
-                this.drawScissors("player1");
-                this.drawPaper("computerChoice");
+                this.drawChoice("player1", '\uf257');
+                this.drawChoice("computerChoice", '\uf256');
                 this.win(this.gameChoices);
                 break;
             case "scissorsscissors":
-                this.drawScissors("player1");
-                this.drawScissors("computerChoice");
+                this.drawChoice("player1", '\uf257');
+                this.drawChoice("computerChoice", '\uf257');
                 this.draw(this.gameChoices);
                 break;
             case "scissorslizard":
-                this.drawScissors("player1");
-                this.drawLizard("computerChoice");
+                this.drawChoice("player1", '\uf257');
+                this.drawChoice("computerChoice", '\uf258');
                 this.win(this.gameChoices);
                 break;
             case "scissorsspock":
-                this.drawScissors("player1");
-                this.drawSpock("computerChoice");
+                this.drawChoice("player1", '\uf257');
+                this.drawChoice("computerChoice", '\uf259');
                 this.lose(this.gameChoices);
                 break;
 
                 // User choses lizard
             case "lizardrock":
-                this.drawLizard("player1");
-                this.drawRock("computerChoice");
+                this.drawChoice("player1", '\uf258');
+                this.drawChoice("computerChoice", '\uf255');
                 this.lose(this.gameChoices);
                 break;
             case "lizardpaper":
-                this.drawLizard("player1");
-                this.drawPaper("computerChoice");
+                this.drawChoice("player1", '\uf258');
+                this.drawChoice("computerChoice", '\uf256');
                 this.win(this.gameChoices);
                 break;
             case "lizardscissors":
-                this.drawLizard("player1");
-                this.drawScissors("computerChoice");
+                this.drawChoice("player1", '\uf258');
+                this.drawChoice("computerChoice", '\uf257');
                 this.lose(this.gameChoices);
                 break;
             case "lizardlizard":
-                this.drawLizard("player1");
-                this.drawLizard("computerChoice");
+                this.drawChoice("player1", '\uf258');
+                this.drawChoice("computerChoice", '\uf258');
                 this.draw(this.gameChoices);
                 break;
             case "lizardspock":
-                this.drawLizard("player1");
-                this.drawSpock("computerChoice");
+                this.drawChoice("player1", '\uf258');
+                this.drawChoice("computerChoice", '\uf259');
                 this.win(this.gameChoices);
                 break;
 
                 // User choses spock
             case "spockrock":
-                this.drawSpock("player1");
-                this.drawRock("computerChoice");
+                this.drawChoice("player1", '\uf259');
+                this.drawChoice("computerChoice", '\uf255');
                 this.win(this.gameChoices);
                 break;
             case "spockpaper":
-                this.drawSpock("player1");
-                this.drawPaper("computerChoice");
+                this.drawChoice("player1", '\uf259');
+                this.drawChoice("computerChoice", '\uf256');
                 this.lose(this.gameChoices);
                 break;
             case "spockscissors":
-                this.drawSpock("player1");
-                this.drawScissors("computerChoice");
+                this.drawChoice("player1", '\uf259');
+                this.drawChoice("computerChoice", '\uf257');
                 this.win(this.gameChoices);
                 break;
             case "spocklizard":
-                this.drawSpock("player1");
-                this.drawLizard("computerChoice");
+                this.drawChoice("player1", '\uf259');
+                this.drawChoice("computerChoice", '\uf258');
                 this.lose(this.gameChoices);
                 break;
             case "spockspock":
-                this.drawSpock("player1");
-                this.drawSpock("computerChoice");
+                this.drawChoice("player1", '\uf259');
+                this.drawChoice("computerChoice", '\uf259');
                 this.draw(this.gameChoices);
                 break;
         }
     };
+
+    checkWinLose() {
+        if (this.p1Score === 5) {
+            this.p1GeneralScore = 1;
+            this.p1Score = 0;
+            this.compP2Score = 0;
+        } else if (this.compP2Score === 5) {
+            this.compP2GeneralScore = 1;
+            this.compP2Score = 0;
+            this.p1Score = 0;
+        }
+    }
 };
