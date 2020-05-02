@@ -21,6 +21,27 @@ const main = () => {
         // Add the listener to modify the HTML with the button
         const startButton = document.querySelector("button")
         startButton.addEventListener('click', buildGameScreen);
+        startButton.addEventListener('click', startSound);
+    }
+
+    // Audios and music
+    const startSound = () => {
+        const sound = new Audio();
+        sound.src = "/sounds/startgame.mp3";
+        sound.play();
+    }
+
+    const choiceSound = () => {
+        const soundChoice = new Audio();
+        soundChoice.src = "/sounds/choice.wav";
+        soundChoice.play();
+    }
+
+    const gameMusic = () => {
+        const theme = new Audio();
+        theme.src = "/sounds/gamemusic.mp3";
+        theme.play();
+        theme.loop = true;
     }
 
     // Build the HTML of the game screen
@@ -41,11 +62,11 @@ const main = () => {
             <button id="scissors" class="choice" type="button">
                 <i class="fa fa-hand-scissors-o"></i>
             </button>
-            <button id="spock" class="choice" type="button">
-                <i class="fa fa-hand-spock-o"></i>
-            </button>
             <button id="lizard" class="choice" type="button">
                 <i class="fa fa-hand-lizard-o"></i>
+            </button>
+            <button id="spock" class="choice" type="button">
+                <i class="fa fa-hand-spock-o"></i>
             </button>
         </div>
     </section>
@@ -69,25 +90,31 @@ const main = () => {
         // Listener to the ROCK option
         const rock = document.getElementById("rock");
         rock.addEventListener("click", () => game.playerChoice("rock"));
+        rock.addEventListener("click", choiceSound);
 
         // Listener to the PAPER option
         const paper = document.getElementById("paper");
         paper.addEventListener("click", () => game.playerChoice("paper"));
+        paper.addEventListener("click", choiceSound);
 
         // Listener to the SCISSORS option
         const scissors = document.getElementById("scissors");
         scissors.addEventListener("click", () => game.playerChoice("scissors"));
+        scissors.addEventListener("click", choiceSound);
 
         // Listener to the LIZARD option
         const lizard = document.getElementById("lizard");
         lizard.addEventListener("click", () => game.playerChoice("lizard"));
+        lizard.addEventListener("click", choiceSound);
 
         // Listener to the SPOCK option
         const spock = document.getElementById("spock");
         spock.addEventListener("click", () => game.playerChoice("spock"));
+        spock.addEventListener("click", choiceSound);
     };
     // Function to start the Splash screen on load
     buildSplashScreen();
+    gameMusic();
 }
 
 // Start the main constant on load
