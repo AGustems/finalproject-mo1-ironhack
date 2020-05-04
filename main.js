@@ -53,12 +53,37 @@ const main = () => {
     <div id="modal-overlay" class="modal-overlay">
         <div class="modal-window">
             <div class="modal-titlebar">
-                <span class="modal-title">A sample title</span>
+                <span class="modal-title">WHAT THE SPOCK IS THIS?</span>
                 <button id="modal-close"><i class="fa fa-times-circle-o" aria-hidden="true"></i>
                 </button>
             </div>
             <div class="modal-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo sapiente fugit aliquid ut! Aliquid adipisci veritatis ipsum necessitatibus id libero totam, perspiciatis repellat voluptates labore blanditiis nisi voluptatem porro.
+                <div class="text-rules">
+                    <h3>Rock, paper... what now?</h3>
+                    <p> Lizard, Spock is an expansion pack for the much-loved game of
+                        <i>rock, paper, scissors</i>. The additional characters were added by 
+                        <b>Sam Kass and Karen Bryla</b> and the game has been popularised by 
+                        <b>The Big Bang Theory</b> TV series.
+                    </p>
+                    <br>
+                    <h3>The rules</h3>
+                    <p>The rules are quite simple, so read carefully:</p>
+                    <ul>
+                        <li><b>Rock</b> crushes <b>Scissors</b></li>
+                        <li><b>Scissors</b> cut <b>Paper</b></li>
+                        <li><b>Paper</b> covers <b>Rock</b></li>
+                        <li><b>Rock</b> crushes <b>Lizard</b></li>
+                        <li><b>Lizard</b> poisons <b>Spock</b></li>
+                        <li><b>Spock</b> smashes <b>Scissors</b></li>
+                        <li><b>Scissors</b> decapitates <b>Lizard</b></li>
+                        <li><b>Lizard</b> eats <b>Paper</b></li>
+                        <li><b>Paper</b> disaproves <b>Spock</b></li>
+                        <li><b>Spock</b> vaporizes <b>Rock</b></li>
+                    </ul>
+                </div>
+                <div class="img-rules">
+                    <img src="img/rules.png" alt="rules">
+                </div>
             </div>
         </div>
     </div>

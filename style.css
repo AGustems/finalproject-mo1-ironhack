@@ -86,7 +86,7 @@ main {
     text-decoration: none;
     outline: none;
     color: #1D032B;
-    background-color: #E68E2D;
+    background-color: #e68e2d;
     border: 7px solid #1D032B;
     border-radius: 25%;
     box-shadow: 0 9px #999;
@@ -116,34 +116,35 @@ main {
 
 .modal-window {
     max-width: 60%;
-    background-color: white;
-    border: 1px solid red;
-    font-size: 16px;
+    border: 6px solid #585E95;
+    border-radius: 10px;
+    font-size: 24px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2)
 }
 
 .modal-titlebar {
-    height: 40px;
-    background: blue;
+    height: 80px;
+    background: #1D032B;
+    font-size: 1.5em;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .modal-title {
-    margin-left: 15px;
+    margin-left: 35px;
     font-weight: bold;
-    color: white;
+    color: #585E95;
 }
 
 #modal-close {
-    font-size: 40px;
-    width: 60px;
-    height: 80px;
+    font-size: 60px;
+    width: 80px;
+    height: 100px;
     outline: none;
     border: none;
     background: transparent;
-    color: green;
+    color: #585E95;
     cursor: pointer;
 }
 
@@ -152,6 +153,21 @@ main {
 }
 
 .modal-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
     padding: 15px;
-    font-size: 0.9 em;
+    font-size: 0.7em;
+    background: #c46500;
+    color: white;
+}
+
+
+.text-rules {
+    width: 40%;
+}
+
+.text-rules>h3 {
+    text-decoration: underline;
 }
