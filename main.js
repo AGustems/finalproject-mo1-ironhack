@@ -28,7 +28,7 @@ const main = () => {
         `);
 
         // Add the listener to modify the HTML with the button
-        const startButton = document.querySelector("button")
+        const startButton = document.querySelector("button");
         startButton.addEventListener('click', buildGameScreen);
         startButton.addEventListener('click', startSound);
         startButton.addEventListener('click', gameMusic);
@@ -50,10 +50,23 @@ const main = () => {
     // Build the HTML of the game screen
     const buildGameScreen = () => {
         buildDom(`
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-window">
+            <div class="modal-titlebar">
+                <span class="modal-title">A sample title</span>
+                <button id="modal-close"><i class="fa fa-times-circle-o" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo sapiente fugit aliquid ut! Aliquid adipisci veritatis ipsum necessitatibus id libero totam, perspiciatis repellat voluptates labore blanditiis nisi voluptatem porro.
+            </div>
+        </div>
+    </div>
+
     <section id="game-area" class="options">
         <canvas id="canvas" class="canvas"></canvas>
     </section>
-
+    
     <section id="option-select" class="options">
         <div id="button-row" class="button-row">
             <button id="rock" class="choice" type="button">
@@ -114,6 +127,13 @@ const main = () => {
         const spock = document.getElementById("spock");
         spock.addEventListener("click", () => game.playerChoice("spock"));
         spock.addEventListener("click", choiceSound);
+
+        // Adding functionality to the modal window
+        const closeButton = document.getElementById("modal-close");
+        closeButton.addEventListener("click", () => {
+            const modalOverlay = document.getElementById("modal-overlay");
+            modalOverlay.parentElement.removeChild(modalOverlay);
+        });
     };
     // Function to start the Splash screen on load
     buildSplashScreen();
