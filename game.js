@@ -351,8 +351,6 @@ class Game {
 
     // Draw match screen
     draw(matchChoice) {
-        // Control console.log
-        console.log("DRAAAAW!");
 
         // Print the draw screen
         setTimeout(() => {
@@ -387,7 +385,7 @@ class Game {
         // Print the canvas to play again
         setTimeout(() => {
             this.drawCanvas();
-        }, 10000)
+        }, 8000)
     };
 
     // Get a random answer for the machine
@@ -570,14 +568,20 @@ class Game {
             this.p1GeneralScore++;
             this.p1Score = 0;
             this.compP2Score = 0;
+            setTimeout(() => {
+                buildGameWin()
+            }, 8000);
         } else if (this.compP2Score === 5) {
             this.compP2GeneralScore++;
             this.compP2Score = 0;
             this.p1Score = 0;
+            setTimeout(() => {
+                buildGameLose()
+            }, 8000);
         } else {
             setTimeout(() => {
                 this.drawCanvas();
-            }, 10000);
+            }, 8000);
         }
     };
 };
