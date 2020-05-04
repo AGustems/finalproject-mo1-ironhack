@@ -84,9 +84,9 @@ class Game {
         this.winSound = new Audio();
         this.winSound.src = "sounds/win.mp3";
         this.loseSound = new Audio();
-        this.loseSound.src = "sounds/lose.mp3"
+        this.loseSound.src = "sounds/lose.mp3";
         this.drawSound = new Audio();
-        this.drawSound.src = "sounds/draw.mp3"
+        this.drawSound.src = "sounds/draw.mp3";
     };
 
     // Scoreboard for both players
@@ -275,17 +275,14 @@ class Game {
             this.winSound.play();
         }, 3000);
 
-        // Reset the canvas to play again
-        setTimeout(() => {
-            this.drawCanvas();
-        }, 10000)
+        // Reset the canvas to play again or gameover screen
+        this.checkWinLose();
     };
 
     // Lose match screen 
     lose(matchChoice) {
         // Increment the score of the Computer
         this.compP2Score++;
-        this.checkWinLose();
         const x = this.canvas.width / 5;
         const y = this.canvas.height * 0.7;
 
@@ -348,11 +345,8 @@ class Game {
             this.loseSound.play();
         }, 3000);
 
-        // Reset the canvas to play again
-        setTimeout(() => {
-            this.drawCanvas();
-        }, 10000)
-
+        // Reset the canvas to play again or gameover screen
+        this.checkWinLose();
     };
 
     // Draw match screen
@@ -570,15 +564,20 @@ class Game {
         }
     };
 
+    // Checking if the player or the computer has reach 5 victories and adding a point to the general count
     checkWinLose() {
         if (this.p1Score === 5) {
-            this.p1GeneralScore = 1;
+            this.p1GeneralScore++;
             this.p1Score = 0;
             this.compP2Score = 0;
         } else if (this.compP2Score === 5) {
-            this.compP2GeneralScore = 1;
+            this.compP2GeneralScore++;
             this.compP2Score = 0;
             this.p1Score = 0;
+        } else {
+            setTimeout(() => {
+                this.drawCanvas();
+            }, 10000);
         }
-    }
+    };
 };

@@ -5,6 +5,15 @@ const main = () => {
         main.innerHTML = html;
     };
 
+    // Theme music
+    const gameMusic = () => {
+        const theme = new Audio();
+        theme.src = "sounds/gamemusic.mp3";
+        theme.play();
+        theme.loop = true;
+        theme.volume = 0.5;
+    };
+
     // Build the HTML splash screen
     const buildSplashScreen = () => {
         buildDom(`
@@ -22,16 +31,10 @@ const main = () => {
         const startButton = document.querySelector("button")
         startButton.addEventListener('click', buildGameScreen);
         startButton.addEventListener('click', startSound);
+        startButton.addEventListener('click', gameMusic);
     }
 
-    // Audios and music
-    const gameMusic = () => {
-        const theme = new Audio();
-        theme.src = "sounds/gamemusic.mp3";
-        theme.play();
-        theme.loop = true;
-    };
-
+    // In-game sounds
     const startSound = () => {
         const sound = new Audio();
         sound.src = "sounds/startgame.mp3";
@@ -114,7 +117,6 @@ const main = () => {
     };
     // Function to start the Splash screen on load
     buildSplashScreen();
-    setTimeout(gameMusic, 1000);
 }
 
 // Start the main constant on load
