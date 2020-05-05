@@ -164,7 +164,7 @@ const main = () => {
 }
 
 // Start the main constant on load
-window.addEventListener('load', main)
+window.addEventListener('load', main);
 
 // Checking the dataStorage/creating it
 window.addEventListener('load', () => {

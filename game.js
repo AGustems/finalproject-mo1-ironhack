@@ -153,6 +153,7 @@ class Game {
         this.ctx.restore();
     };
 
+    // Banner with the score
     drawBadge(xPlus, color, player, score) {
         this.ctx.beginPath();
         this.ctx.moveTo(xPlus + 50, 0);
@@ -199,6 +200,9 @@ class Game {
         this.ctx.strokeStyle = "#1D032B";
         this.ctx.stroke();
         this.ctx.closePath();
+
+        // Draw trophies (if needed)
+        this.drawTrophies();
     };
 
     // Icons for the win/lose/draw screen
