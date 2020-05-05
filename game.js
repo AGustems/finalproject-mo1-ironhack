@@ -571,6 +571,9 @@ class Game {
             setTimeout(() => {
                 buildGameWin()
             }, 8000);
+            setTimeout(() => {
+                this.drawCanvas();
+            }, 9000);
         } else if (this.compP2Score === 5) {
             this.compP2GeneralScore++;
             this.compP2Score = 0;
@@ -578,6 +581,9 @@ class Game {
             setTimeout(() => {
                 buildGameLose()
             }, 8000);
+            setTimeout(() => {
+                this.drawCanvas();
+            }, 9000);
         } else {
             setTimeout(() => {
                 this.drawCanvas();

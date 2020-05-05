@@ -102,6 +102,7 @@ main {
     transform: translateY(4px);
 }
 
+
 .modal-overlay {
     position: fixed;
     width: 100%;
@@ -115,7 +116,7 @@ main {
 }
 
 .modal-window {
-    max-width: 60%;
+    width: 55%;
     border: 6px solid white;
     border-radius: 10px;
     font-size: 24px;
@@ -171,4 +172,42 @@ main {
 
 .text-rules>h3 {
     text-decoration: underline;
+}
+
+.modal-winlose {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background: #c46500;
+    color: white;
+}
+
+.img-winlose {
+    align-self: center;
+    width: 500px;
+    height: 500px;
+    margin-top: 40px;
+}
+
+.next-buttons {
+    align-self: flex-end;
+    margin: 10px 20px;
+}
+
+.modal-button {
+    font-size: 45px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #1D032B;
+    background-color: #e68e2d;
+    border: 7px solid #1D032B;
+    border-radius: 10px;
+    box-shadow: 0 5px #999;
+}
+
+.modal-button:active {
+    background-color: #E68E2D;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }

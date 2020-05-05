@@ -116,7 +116,6 @@ const main = () => {
         // Starting the canvas and the game class
         const canvasElement = document.querySelector("canvas");
 
-
         // Fixing the blurry render in the canvas
         let dpi = window.devicePixelRatio;
         let style_height = +getComputedStyle(canvas).getPropertyValue("height").slice(0, -2);
