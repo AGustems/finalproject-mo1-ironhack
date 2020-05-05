@@ -200,9 +200,6 @@ class Game {
         this.ctx.strokeStyle = "#1D032B";
         this.ctx.stroke();
         this.ctx.closePath();
-
-        // Draw trophies (if needed)
-        this.drawTrophies();
     };
 
     // Icons for the win/lose/draw screen
