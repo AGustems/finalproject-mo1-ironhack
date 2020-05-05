@@ -165,3 +165,11 @@ const main = () => {
 
 // Start the main constant on load
 window.addEventListener('load', main)
+
+// Checking the dataStorage/creating it
+window.addEventListener('load', () => {
+    if (!localStorage.playerPoints) {
+        window.localStorage.setItem("playerPoints", 0);
+        window.localStorage.setItem("computerPoints", 0);
+    }
+})

@@ -5,8 +5,8 @@ class Game {
         this.ctx = this.canvas.getContext('2d');
 
         // Game scores
-        this.p1GeneralScore = 0;
-        this.compP2GeneralScore = 0;
+        this.p1GeneralScore = parseInt(localStorage.playerPoints);
+        this.compP2GeneralScore = parseInt(localStorage.computerPoints);
 
         // Match scores
         this.p1Score = 0;
@@ -568,6 +568,7 @@ class Game {
             this.p1GeneralScore++;
             this.p1Score = 0;
             this.compP2Score = 0;
+            localStorage.setItem("playerPoints", this.p1GeneralScore)
             setTimeout(() => {
                 buildGameWin()
             }, 8000);
@@ -578,6 +579,7 @@ class Game {
             this.compP2GeneralScore++;
             this.compP2Score = 0;
             this.p1Score = 0;
+            localStorage.setItem("computerPoints", this.compP2GeneralScore)
             setTimeout(() => {
                 buildGameLose()
             }, 8000);
