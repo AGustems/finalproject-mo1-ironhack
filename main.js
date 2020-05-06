@@ -163,8 +163,44 @@ const main = () => {
     buildSplashScreen();
 }
 
+const badge = () => {
+    const buildBadge = (html) => {
+        const badge = document.getElementById("badges");
+        badge.innerHTML = html;
+    };
+
+    switch (localStorage.playerPoints) {
+        case "10":
+            buildBadge(`
+            <div class="badge-win">
+                <img src="img/badge-10.png">
+            </div>
+            `);
+            break;
+
+        case "100":
+            buildBadge(`
+            <div class="badge-win">
+                <img src="img/badge-100.png">
+            </div>
+            `);
+            break;
+
+        case "1000":
+            buildBadge(`
+            <div class="badge-win">
+                <img src="img/badge-1000.png">
+            </div>
+            `);
+            break;
+    }
+};
+
+
 // Start the main constant on load
 window.addEventListener('load', main);
+window.addEventListener('load', badge);
+
 
 // Checking the dataStorage/creating it
 window.addEventListener('load', () => {
