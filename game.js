@@ -170,9 +170,21 @@ class Game {
         this.ctx.fillStyle = "white";
         this.ctx.font = "32px Arial";
         this.ctx.fillText(`${player}`, xPlus + 70, 50);
-        this.ctx.font = "100px Arial";
-        this.ctx.fillText(score, xPlus + 85, 150)
 
+        // Writing the score number
+        if (score.toString().length === 1) {
+            this.ctx.font = "100px Arial";
+            this.ctx.fillText(score, xPlus + 85, 150);
+        } else if (score.toString().length === 2) {
+            this.ctx.font = "100px Arial";
+            this.ctx.fillText(score, xPlus + 60, 150);
+        } else if (score.toString().length === 3) {
+            this.ctx.font = "70px Arial";
+            this.ctx.fillText(score, xPlus + 55, 140);
+        } else if (score.toString().length === 4) {
+            this.ctx.font = "50px Arial";
+            this.ctx.fillText(score, xPlus + 55, 140);
+        }
     };
 
     // Waiting screen for the canvas + score
