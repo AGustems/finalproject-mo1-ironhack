@@ -64,10 +64,12 @@ Repositorio:
 + [Repositorio en GitHub](https://github.com/AGustems/finalproject-mo1-ironhack)
 
 ​
-// Deploy: (no ahora, para un futuro)
+Deploy:
++ [GitHub pages](https://agustems.github.io/finalproject-mo1-ironhack/)
 ​
 ### Slides
-// To Do​
+Presentación:
++ [Slides de Google](https://drive.google.com/file/d/1V3cgxfI68M7QPGuryZkvsw9NIkPTv6nL/view?usp=sharing)
 
 
 ### Kanban
